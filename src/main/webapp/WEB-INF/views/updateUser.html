@@ -1,0 +1,19 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/update}" th:object="${user}" method="post">
+
+    <input type="hidden" name="id" th:value="*{id}">
+
+    <input type="text"name="name" th:value="*{name}" >
+    <br>
+    <input type="number" name="phone" th:value="*{phone}" >
+    <br>
+    <input type="submit" name="" value="submit">
+</form>
+</body>
+</html>
