@@ -85,7 +85,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     //static resources
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/static/**").addResourceLocations("file:D:/gitproject/CRUD/src/main/webapp/resources/img/");
     }
 
     @Bean

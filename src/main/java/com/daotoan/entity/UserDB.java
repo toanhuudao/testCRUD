@@ -13,6 +13,16 @@ public class UserDB implements Serializable {
     private String name;
     @Column(name = "phone")
     private int phone;
+    @Column(name = "imageURL")
+    private String imageURL;
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
     public static Long getSerialVersionUID() {
         return serialVersionUID;
@@ -42,10 +52,11 @@ public class UserDB implements Serializable {
         this.phone = phone;
     }
 
-    public UserDB(int id, String name, int phone) {
+    public UserDB(int id, String name, int phone,String imageURL) {
         this.id = id;
         this.name = name;
         this.phone = phone;
+        this.imageURL=imageURL;
     }
 
     public UserDB() {

@@ -2,12 +2,14 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/static/css/home.css}" >
     <title>Title</title>
 </head>
 <body>
 <button><a th:href="@{/addUserPage}">addUser</a></button>
 
-<table border="1">
+<table id="table" border="1px">
 
     <tr>
         <th>id</th>
@@ -19,13 +21,11 @@
         <td th:text="${user.id}"></td>
         <td th:text="${user.name}"></td>
         <td th:text="${user.phone}"></td>
-        <td th:text="${user.avatar}"></td>
-        <td><a th:href="@{/detail/__${user.id}__}">detail</a></td>
+        <td><img id="img" th:src="@{/static/__${user.getImgURL()}__}" alt="img"></td>
+        <td><a  th:href="@{/detail/__${user.id}__}">detail</a></td>
         <td><a th:href="@{/update/__${user.id}__}">update </a></td>
         <td><a th:href="@{/delete/__${user.id}__}">delete</a></td>
     </tr>
-
-
 </table>
 </body>
 </html>

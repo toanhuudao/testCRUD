@@ -6,10 +6,20 @@ import javax.persistence.Entity;
 
 
 public class User {
-    private  int id;
+    private int id;
     private String name;
     private int phone;
+    private String imgURL;
     private MultipartFile avatar;
+
+    public String getImgURL() {
+        return imgURL;
+    }
+
+    public void setImgURL(String imgURL) {
+        this.imgURL = imgURL;
+    }
+
 
     public MultipartFile getAvatar() {
         return avatar;
@@ -22,10 +32,11 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, int phone) {
+    public User(int id, String name, int phone, String imgURL) {
         this.id = id;
         this.name = name;
         this.phone = phone;
+        this.imgURL = imgURL;
     }
 
     public int getId() {

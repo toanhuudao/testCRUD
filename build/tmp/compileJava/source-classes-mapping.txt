@@ -12,11 +12,11 @@ com/daotoan/entity/UserDB.java
  com.daotoan.entity.UserDB
 com/daotoan/dao/userDaoImpl/UserDaoImpl.java
  com.daotoan.dao.userDaoImpl.UserDaoImpl
+com/daotoan/controller/ExceptionController.java
+ com.daotoan.controller.ExceptionController
 com/daotoan/dao/UserDao.java
  com.daotoan.dao.UserDao
 com/daotoan/controller/UserController.java
  com.daotoan.controller.UserController
-com/daotoan/controller/HomeController.java
- com.daotoan.controller.HomeController
 com/daotoan/configuration/ApplicationConfig.java
  com.daotoan.configuration.ApplicationConfig

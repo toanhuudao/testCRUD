@@ -5,13 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/update}" th:object="${user}" method="post">
+<form th:action="@{/update}" th:object="${user}" method="post" enctype="multipart/form-data">
 
     <input type="hidden" name="id" th:value="*{id}">
 
     <input type="text"name="name" th:value="*{name}" >
     <br>
     <input type="number" name="phone" th:value="*{phone}" >
+    <br>
+    <input type="file" name="avatar" th:value="*{avatar}" >
     <br>
     <input type="submit" name="" value="submit">
 </form>

@@ -1,7 +1,5 @@
 package com.daotoan.controller;
 
-import com.daotoan.dao.UserDao;
-import com.daotoan.entity.UserDB;
 import com.daotoan.model.User;
 import com.daotoan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
     @Autowired
     UserService userService;
+
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/danh-sach-khach-hang";
+    }
 
     @GetMapping("/danh-sach-khach-hang")
     public ModelAndView allList() {
@@ -36,7 +39,7 @@ public class UserController {
     public ModelAndView addUser() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/addUser");
-       modelAndView.addObject("user", new User());
+        modelAndView.addObject("user", new User());
         return modelAndView;
 
     }

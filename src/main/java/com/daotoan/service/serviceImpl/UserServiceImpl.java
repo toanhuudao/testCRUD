@@ -6,7 +6,11 @@ import com.daotoan.model.User;
 import com.daotoan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,18 +21,40 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(User user) {
+        MultipartFile avatar=user.getAvatar();
+        File newFile=new File("D:\\gitproject\\CRUD\\src\\main\\webapp\\resources\\img\\"+avatar.getOriginalFilename());
+        try (FileOutputStream fileOutputStream = new FileOutputStream(newFile)) {
+            fileOutputStream.write(user.getAvatar().getBytes());
+            fileOutputStream.close();
+            user.setImgURL(avatar.getOriginalFilename());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         UserDB userDB=new UserDB();
         userDB.setName(user.getName());
         userDB.setPhone(user.getPhone());
+        userDB.setImageURL(user.getImgURL());
         userDao.addUser(userDB);
     }
 
     @Override
     public void updateUser(User user) {
+        MultipartFile avatar=user.getAvatar();
+        File newFile=new File("D:\\gitproject\\CRUD\\src\\main\\webapp\\resources\\img\\"+avatar.getOriginalFilename());
+        try (FileOutputStream fileOutputStream = new FileOutputStream(newFile)) {
+            fileOutputStream.write(user.getAvatar().getBytes());
+            fileOutputStream.close();
+            user.setImgURL(avatar.getOriginalFilename());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         UserDB userDB=new UserDB();
         userDB.setId(user.getId());
         userDB.setPhone(user.getPhone());
         userDB.setName(user.getName());
+        userDB.setImageURL(user.getImgURL());
         userDao.updateUser(userDB);
     }
 
@@ -45,6 +71,7 @@ public class UserServiceImpl implements UserService {
         user.setId(userId);
         user.setPhone(userDB.getPhone());
         user.setName(userDB.getName());
+        user.setImgURL(userDB.getImageURL());
         return user;
     }
 
@@ -58,6 +85,7 @@ public class UserServiceImpl implements UserService {
             user.setId(userDB.getId());
             user.setPhone(userDB.getPhone());
             user.setName(userDB.getName());
+            user.setImgURL(userDB.getImageURL());
             userList.add(user);
         }
         return userList;
