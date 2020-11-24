@@ -21,8 +21,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(User user) {
-        MultipartFile avatar=user.getAvatar();
-        File newFile=new File("D:\\gitproject\\CRUD\\src\\main\\webapp\\resources\\img\\"+avatar.getOriginalFilename());
+        MultipartFile avatar = user.getAvatar();
+        File newFile = new File("D:\\gitproject\\CRUD\\src\\main\\webapp\\resources\\img\\" + avatar.getOriginalFilename());
         try (FileOutputStream fileOutputStream = new FileOutputStream(newFile)) {
             fileOutputStream.write(user.getAvatar().getBytes());
             fileOutputStream.close();
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
         }
 
 
-        UserDB userDB=new UserDB();
+        UserDB userDB = new UserDB();
         userDB.setName(user.getName());
         userDB.setPhone(user.getPhone());
         userDB.setImageURL(user.getImgURL());
@@ -41,8 +41,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-        MultipartFile avatar=user.getAvatar();
-        File newFile=new File("D:\\gitproject\\CRUD\\src\\main\\webapp\\resources\\img\\"+avatar.getOriginalFilename());
+        MultipartFile avatar = user.getAvatar();
+        File newFile = new File("D:\\gitproject\\CRUD\\src\\main\\webapp\\resources\\img\\" + avatar.getOriginalFilename());
         try (FileOutputStream fileOutputStream = new FileOutputStream(newFile)) {
             fileOutputStream.write(user.getAvatar().getBytes());
             fileOutputStream.close();
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        UserDB userDB=new UserDB();
+        UserDB userDB = new UserDB();
         userDB.setId(user.getId());
         userDB.setPhone(user.getPhone());
         userDB.setName(user.getName());
@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
     public User getUser(int userId) {
 
         UserDB userDB = userDao.getUser(userId);
-        User user=new User();
+        User user = new User();
         user.setId(userId);
         user.setPhone(userDB.getPhone());
         user.setName(userDB.getName());
@@ -77,11 +77,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUser() {
-        List<User> userList=new ArrayList<>();
+        List<User> userList = new ArrayList<>();
         List<UserDB> allUserDB = userDao.getAllUser();
         for (UserDB userDB : allUserDB
-        ){
-             User user =new User();
+        ) {
+            User user = new User();
             user.setId(userDB.getId());
             user.setPhone(userDB.getPhone());
             user.setName(userDB.getName());

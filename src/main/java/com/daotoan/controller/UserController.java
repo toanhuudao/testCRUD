@@ -41,7 +41,6 @@ public class UserController {
         modelAndView.setViewName("/addUser");
         modelAndView.addObject("user", new User());
         return modelAndView;
-
     }
 
     @PostMapping("/addUser")

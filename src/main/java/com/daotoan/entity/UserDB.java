@@ -1,5 +1,7 @@
 package com.daotoan.entity;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -15,6 +17,8 @@ public class UserDB implements Serializable {
     private int phone;
     @Column(name = "imageURL")
     private String imageURL;
+    @Transient
+    private MultipartFile imgFile;
 
     public String getImageURL() {
         return imageURL;
